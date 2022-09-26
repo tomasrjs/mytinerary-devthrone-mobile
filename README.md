@@ -1,1 +1,0 @@
-# mytinerary-devthrone-mobile
