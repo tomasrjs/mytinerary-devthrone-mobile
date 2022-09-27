@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
-import { View, StyleSheet, Text, FlatList, Dimensions, Image, Animated, ImageBackground, Button } from "react-native";
+import { View, StyleSheet, Text, Dimensions, Image, Animated } from "react-native";
 import { useGetAllCitiesQuery } from '../features/citiesAPI';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
@@ -10,7 +9,7 @@ export default function Carousel() {
   const scrollX = useRef(new Animated.Value(0)).current
   const { data } = useGetAllCitiesQuery('')
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Popular MyTineraries</Text>
       <View style={styles.carouselContainer}>
         <Animated.FlatList
@@ -54,7 +53,7 @@ export default function Carousel() {
           }}
         />
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -62,7 +61,7 @@ export default function Carousel() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: height,
+    height: height *0.88,
     width: width,
     backgroundColor: "#ebf1ff",
     alignItems: "center",
@@ -72,6 +71,7 @@ const styles = StyleSheet.create({
     color: "#3F3D56",
     fontSize: 22,
     fontWeight: "bold",
+    marginTop: 24
   },
   carouselContainer: {
     width: width,
@@ -85,13 +85,6 @@ const styles = StyleSheet.create({
     color: "#3F3D56",
     fontSize: 20,
     padding: 5
-  },
-  viewImage: {
-    height: height * 0.6,
-    marginHorizontal: 10,
-    padding: 10,
-    borderRadius: 20,
-    alignItems: 'center'
   },
   imageCard: {
     width: "100%",

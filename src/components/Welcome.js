@@ -1,13 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { View, StyleSheet, Text, ImageBackground, Button, Dimensions } from "react-native";
-import { SafeAreaView } from 'react-native-safe-area-context';
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
 
 export default function Welcome() {
   const image = { uri: "https://i.ibb.co/dDTtRKP/6345959.jpg" };
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar />
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <View style={styles.containerText}>
@@ -19,7 +18,7 @@ export default function Welcome() {
           <Button title="Choose your destiny" color='#0a5cff' />
         </View>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 }
 
