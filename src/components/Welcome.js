@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { View, StyleSheet, Text, ImageBackground, Button } from "react-native";
+import { View, StyleSheet, Text, ImageBackground, Button, Dimensions } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+const width = Dimensions.get("window").width
+const height = Dimensions.get("window").height
 
 export default function Welcome() {
   const image = { uri: "https://i.ibb.co/dDTtRKP/6345959.jpg" };
-
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar />
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <View style={styles.containerText}>
           <Text style={styles.title}>MyTinerary</Text>
@@ -13,18 +16,18 @@ export default function Welcome() {
             Find your perfect trip, designed by insiders who know and love their
             cities!
           </Text>
-          <Button title="Choose your destiny" color="#0a5cff"/>
+          <Button title="Choose your destiny" color='#0a5cff' />
         </View>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: 780,
-    backgroundColor: "white",
+    height: height,
+    width: width,
     alignItems: "center",
     justifyContent: "center",
   },
