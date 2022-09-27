@@ -25,7 +25,16 @@ export default function Tabs() {
          />
         <Tab.Screen 
         name="Cities" 
-        component={CitiesScreen} />
+        component={CitiesScreen}
+        options={{
+          headerStyle: {
+            backgroundColor: '#5C98FF',
+            height: height*0.1,
+            flex: 1,
+            justifyContent: 'flex-start',
+          },
+         }}
+         />
     </Tab.Navigator>
   )
 }
