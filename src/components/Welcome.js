@@ -1,9 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { View, StyleSheet, Text, ImageBackground, Button, Dimensions } from "react-native";
+import { View, StyleSheet, Text, ImageBackground, TouchableHighlight, Dimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
 
 export default function Welcome() {
+  const navigation = useNavigation()
   const image = { uri: "https://i.ibb.co/dDTtRKP/6345959.jpg" };
   return (
     <View style={styles.container}>
@@ -15,7 +17,13 @@ export default function Welcome() {
             Find your perfect trip, designed by insiders who know and love their
             cities!
           </Text>
-          <Button title="Choose your destiny" color='#0a5cff' />
+          <TouchableHighlight onPress={() => {
+            navigation.navigate("CitiesScreen")
+          }}>
+            <View style={styles.button}>
+              <Text style={{ color: 'aliceblue' }}>Choose your destiny</Text>
+            </View>
+          </TouchableHighlight>
         </View>
       </ImageBackground>
     </View>
@@ -25,10 +33,9 @@ export default function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: height,
+    height: height *0.88,
     width: width,
     alignItems: "center",
-    justifyContent: "center",
   },
   containerText: {
     flex: 1,
@@ -53,5 +60,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: "100%",
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#0a5cff",
+    padding: 6,
+    borderRadius: 4,
+
   },
 });

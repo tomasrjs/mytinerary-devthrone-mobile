@@ -1,29 +1,40 @@
-import { View, Text, Dimensions, StyleSheet, Button, Image } from "react-native";
+import { View, Text, Dimensions, StyleSheet, TouchableHighlight, Image } from "react-native";
 import React from "react";
-
+import { useNavigation } from "@react-navigation/native";
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
 
 export default function CityCard(props) {
-  return (
-    <View style={styles.container}>
-        <Image style={styles.img} source={{uri: props.image}} resizeMode="cover"/>
-        <View style={styles.containerBody}>
-            <Text style={styles.text}>{props.title}</Text>
-            <Button style={styles.btn} title='See More' color='#5C98FF' />
-        </View>
-    </View>
+    const navigation = useNavigation()
+    return (
+        <View style={styles.container}>
+            <Image style={styles.img} source={{ uri: props.image }} resizeMode="cover" />
+            <View style={styles.containerBody}>
+                <Text style={styles.text}>{props.title}</Text>
 
-  );
+                <TouchableHighlight
+                    onPress={() => {
+                        navigation.navigate("Details", {
+                            id: props.idCity
+                        })
+                    }}
+                >
+                    <View style={styles.button}>
+                        <Text style={{ color: 'aliceblue' }}>See More</Text>
+                    </View>
+                </TouchableHighlight>
+            </View>
+        </View>
+
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: width *0.9,
+        width: width * 0.9,
         height: 300,
         marginTop: 24,
-        justifyContent: 'center',
         alignItems: 'center'
     },
     img: {
@@ -51,5 +62,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 10,
         fontWeight: "500"
+    },
+    button: {
+        alignItems: "center",
+        backgroundColor: "#5C98FF",
+        padding: 6,
+        borderRadius: 4
     },
 })

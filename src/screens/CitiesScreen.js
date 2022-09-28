@@ -20,7 +20,7 @@ export default function CitiesScreen() {
       />
       <FlatList
         data={data?.response}
-        renderItem={({ item }) => <CityCard image={item.photo} title={item.city} />}
+        renderItem={({ item }) => <CityCard image={item.photo} idCity={item._id} title={item.city} />}
         keyExtractor={(item) => item._id}
         showsVerticalScrollIndicator={false}
       />
@@ -33,7 +33,6 @@ const styles = StyleSheet.create ({
         flex: 1,
         width: width,
         height: height,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#EBF1FF',
         paddingTop: 24
