@@ -19,5 +19,7 @@ export default configureStore({
         edit: editReducer,
         logged: loggedSlice,
         reload: reloadSlice
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(citiesAPI.middleware).concat(itinerariesAPI.middleware).concat(commentsAPI.middleware).concat(activitiesAPI.middleware).concat(usersAPI.middleware),
 })
