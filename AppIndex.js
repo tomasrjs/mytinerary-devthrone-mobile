@@ -1,15 +1,12 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import store from './src/features/store'
-import AuthNavigator from './src/navigation/AuthNavigator';r
+import AuthNavigator from './src/navigation/AuthNavigator';
 import 'react-native-gesture-handler';
 import { useSignInTokenMutation } from './src/features/usersAPI';
 import { setUser } from './src/features/loggedSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from 'react-redux';
 export default function AppIndex() {
-  /* const logged = useSelector((state) => state.logged.loggedState);
-  const user = useSelector((state) => state.logged.user); */
   const navigation = useNavigation()
   const dispatch = useDispatch();
   const [signInToken] = useSignInTokenMutation();
@@ -42,5 +39,3 @@ export default function AppIndex() {
 
   );
 }
-
-/* AppRegistry.registerComponent('App', () => App) */
