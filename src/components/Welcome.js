@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View, StyleSheet, Text, ImageBackground, TouchableHighlight, Dimensions } from "react-native";
+import { View, StyleSheet, Text, ImageBackground, TouchableOpacity, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
@@ -17,13 +17,13 @@ export default function Welcome() {
             Find your perfect trip, designed by insiders who know and love their
             cities!
           </Text>
-          <TouchableHighlight onPress={() => {
+          <TouchableOpacity onPress={() => {
             navigation.navigate("CitiesScreen")
           }}>
             <View style={styles.button}>
               <Text style={{ color: 'aliceblue' }}>Choose your destiny</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>

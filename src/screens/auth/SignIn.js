@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View, Dimensions } from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Dimensions } from 'react-native'
 import React from 'react'
 import { useDispatch } from "react-redux";
 import { useSignInMutation } from '../../features/usersAPI';
@@ -53,11 +53,11 @@ const SignIn = () => {
                     keyboardType="text"
                     name='password'
                 />
-                <TouchableHighlight onPress={sendSignIn}>
+                <TouchableOpacity onPress={sendSignIn}>
                     <View style={styles.button}>
                         <Text style={{ color: 'aliceblue', fontSize: 20, }}>Sign In</Text>
                     </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
                 <View>
                     <Text style={styles.text}> Don't have an account? </Text>
                     <TouchableOpacity

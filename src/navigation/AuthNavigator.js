@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { Dimensions } from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import SignIn from '../screens/auth/SignIn';
@@ -15,9 +15,8 @@ const AuthNavigator = () => {
                 component={SignIn}
                 options={{
                     title: 'Sign In',
-                    headerTintColor: 'aliceblue',
+                    headerTintColor: '#3f3d56',
                     headerStyle: {
-                        backgroundColor: '#5C98FF',
                         height: height * 0.08,
                     },
                 }}
@@ -27,9 +26,8 @@ const AuthNavigator = () => {
                 component={SignUp}
                 options={{
                     title: 'Sign Up',
-                    headerTintColor: 'aliceblue',
+                    headerTintColor: '#3f3d56',
                     headerStyle: {
-                        backgroundColor: '#5C98FF',
                         height: height * 0.08,
                     },
                 }}
@@ -45,5 +43,3 @@ const AuthNavigator = () => {
 }
 
 export default AuthNavigator
-
-/* const styles = StyleSheet.create({}) */

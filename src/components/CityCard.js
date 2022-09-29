@@ -1,4 +1,4 @@
-import { View, Text, Dimensions, StyleSheet, TouchableHighlight, Image } from "react-native";
+import { View, Text, Dimensions, StyleSheet, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 const width = Dimensions.get("window").width
@@ -12,7 +12,7 @@ export default function CityCard(props) {
             <View style={styles.containerBody}>
                 <Text style={styles.text}>{props.title}</Text>
 
-                <TouchableHighlight
+                <TouchableOpacity
                     onPress={() => {
                         navigation.navigate("Details", {
                             id: props.idCity
@@ -22,7 +22,7 @@ export default function CityCard(props) {
                     <View style={styles.button}>
                         <Text style={{ color: 'aliceblue' }}>See More</Text>
                     </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         </View>
 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '100%',
         height: '100%',
-        borderRadius: 20,
+        borderRadius: 20
     },
     containerBody: {
         flex: 1,
