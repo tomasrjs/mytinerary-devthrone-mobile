@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { StyleSheet, View, Dimensions } from 'react-native'
 import React from 'react'
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
@@ -26,7 +26,6 @@ const MyTinerariesScreen = () => {
     React.useEffect(() => {
         getItineraries()
     }, [reload])
-    console.log(user)
     return (
         <ScrollView>
             <View style={styles.container}>
