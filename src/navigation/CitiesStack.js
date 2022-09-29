@@ -1,4 +1,4 @@
-import { View, Text, Dimensions } from 'react-native'
+import { Dimensions } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import DetailsScreen from '../screens/DetailsScreen'
@@ -16,9 +16,8 @@ export default function CitiesStack() {
             component={DetailsScreen}
             options={{
               headerBackTitleVisible: false,
-              headerTintColor: 'aliceblue',
+              headerTintColor: '#3f3d56',
               headerStyle: {
-                backgroundColor: '#5C98FF',
                 height: height * 0.08,
               },
             }}
@@ -27,9 +26,8 @@ export default function CitiesStack() {
             name='Cities'
             component={CitiesScreen}
             options={{
-              headerTintColor: 'aliceblue',
+              headerTintColor: '#3f3d56',
               headerStyle: {
-                backgroundColor: '#5C98FF',
                 height: height * 0.08,
               },
             }}
