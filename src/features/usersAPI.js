@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import apiurl from "../../api";
+import { useSelector } from 'react-redux';
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',
     baseQuery: fetchBaseQuery({
@@ -33,7 +34,7 @@ export const usersAPI = createApi({
             query: (token) => ({
                 url: '/auth/token',
                 method: 'GET',
-                headers: {Authorization: `Bearer ${token}` }
+                headers: { Authorization: `Bearer ${token}` }
             })
         }),
         signOut: builder.mutation({
@@ -52,7 +53,13 @@ export const usersAPI = createApi({
                 url: '/auth/editProfile',
                 method: 'PATCH',
                 body: body,
-                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+                headers: {
+                    Authorization: `Bearer ${() => {
+                        let token = useSelector((state) => state.logged.token)
+                        return token
+                    }
+                        }`
+                }
             }),
         }),
     })
