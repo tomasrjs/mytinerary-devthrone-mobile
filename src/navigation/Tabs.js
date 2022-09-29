@@ -4,6 +4,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CitiesStack from './CitiesStack';
 import HomeScreen from '../screens/HomeScreen';
+import Drawer from './Drawer';
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
 
@@ -16,6 +17,7 @@ export default function Tabs() {
       screenOptions={{
         tabBarActiveTintColor: 'purple'
       }}
+      initialRouteName='Home'
     >
       <Tab.Screen
         name="Home"
@@ -35,6 +37,14 @@ export default function Tabs() {
           tabBarLabel: 'Cities',
           headerShown: false
         }}
+      />
+      <Tab.Screen 
+      name="AccountDrawer"
+      component={Drawer}
+      options={{
+        tabBarLabel: 'Account',
+        headerShown: false}}
+        
       />
     </Tab.Navigator>
   )
