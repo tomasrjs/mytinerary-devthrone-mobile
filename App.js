@@ -1,14 +1,16 @@
-import {Provider} from 'react-redux'
+import React from 'react'
 import store from './src/features/store'
-import Tabs from './src/navigation/Tabs';
+import { Provider } from 'react-redux'
+import AppIndex from './AppIndex'
 import { NavigationContainer } from '@react-navigation/native';
-import 'react-native-gesture-handler';
-export default function App() {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Tabs/>
-      </NavigationContainer>
-    </Provider>
-  );
+const App = () => {
+    return (
+        <Provider store={store}>
+            <NavigationContainer>
+                <AppIndex />
+            </NavigationContainer>
+        </Provider>
+    )
 }
+
+export default App

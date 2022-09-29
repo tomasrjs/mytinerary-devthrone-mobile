@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import apiurl from "../../api";
+import { useSelector } from 'react-redux';
 export const itinerariesAPI =  createApi({
     reducerPath: 'itinerariesAPI',
     baseQuery: fetchBaseQuery({
@@ -39,7 +40,11 @@ export const itinerariesAPI =  createApi({
             query: (id) => ({
                 url: `/itineraries/likes/${id}`,
                 method: 'PATCH',
-                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+                headers: {Authorization: `Bearer ${() => {
+                    let token = useSelector((state) => state.logged.token)
+                    return token
+                }
+                }`}
             })
         }),
         deleteItinerary: builder.mutation({
